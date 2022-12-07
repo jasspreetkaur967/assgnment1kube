@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jaspreet
+  labels:
+    app: django-blog
+
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: django-blog
+  template:
+    metadata:
+      labels:
+        app: django-blog
+    spec:
+      containers:
+      - name: jaspreet
+        image: jaspreetkaur97/jaspreet:myapp
+        ports:
+        - containerPort: 8000
